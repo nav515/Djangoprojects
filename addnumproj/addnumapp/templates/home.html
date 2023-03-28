@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h3>Gopagani Naveen</h3>
+
+{% block content %}
+<form action="add">
+
+    Enter 1st number : <input type="text" name="num1" required><br>
+    Enter 2st number : <input type="text" name="num2" required><br>
+    <input type="submit">
+
+</form>
+<br>
+<br>
+<h3>Sum of {{ val1 }} and {{ val2 }}</h3>
+<h3>Result : {{res}}</h3>
+{% endblock%}
+
+</body>
+</html>

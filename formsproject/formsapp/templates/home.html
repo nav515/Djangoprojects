@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin-left:450px">
+<h2>Enter the Student Details</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{fm.as_p}}
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>
+ <table border="1">
+        <th>
+            <td>Student Name</td>
+            <td>Email</td>
+            <td>Roll Numder</td>
+            <td>Section</td>
+            <td>Action</td>
+        </th>
+
+        {% for i in data %}
+        <tr><td></td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.roll_number}}</td>
+            <td>{{i.section}}</td>
+            <td><a href="{% url 'edit' i.id %}"><button>Update</button></a>
+                <a href="{% url 'delete' i.id %}"><button>Delete</button></a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+  </div>
+</body>
+</html>

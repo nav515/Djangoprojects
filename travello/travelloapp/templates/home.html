@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>travello</title>
+</head>
+<body>
+<div style="margin-left:450px">
+  <h3>Enter the Traveller Details</h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{fm.as_p}}
+    <button type="submit">Submit</button>
+</form>
+</div>
+<div>
+        <th>
+            <td>Name</td>
+            <td>age</td>
+            <td>gender</td>
+            <td>ph_num</td>
+            <td>aadar</td>
+            <td>Image</td>
+        </th>
+    {% for i in data %}
+        <tr><td></td>
+            <td>{{i.tr_name}}</td>
+            <td>{{i.tr_age}}</td>
+            <td>{{i.tr_gender}}</td>
+            <td>{{i.tr_phnum}}</td>
+            <td>{{i.tr_aadar}}</td>
+            <td><img src="{{ static i.tr_image }}" style="max-height:300px"></td>
+            <td><a><button>Update</button></a>
+                <a><button>Delete</button></a></td>
+        </tr>
+        {% endfor %}
+</div>
+
+</body>
+</html>

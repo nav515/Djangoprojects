@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+</head>
+<body>
+
+<form action="add" method="post">
+    {% csrf_token %}
+    Enter number: <input type="number" name="num1"><br>
+    Enter number: <input type="number" name="num2"><br>
+    <button >Submit</button>
+</form>
+
+<h4>Result : {{ res }}</h4>
+</body>
+</html>
