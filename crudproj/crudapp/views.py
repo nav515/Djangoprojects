@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 from . forms import EmployeeForm
 from . models import Employee
@@ -21,4 +21,5 @@ def datashow(request):
             messages.error(request, form.errors)
     else:
         form = EmployeeForm()
-    return render(request,'home.html',{'form': form})
+        data = Employee.objects.all().order_by('EmpNum')
+    return render(request,'home.html',{'form': form,'data':data})
