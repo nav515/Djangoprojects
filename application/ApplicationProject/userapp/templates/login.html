@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% load account socialaccount %}
+    {% load socialaccount %}
     <title>Login Form</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,8 +99,8 @@
 {% for message in messages %}
 <h3>{{message}}</h3>
 {% endfor %}
-      <p>Don't have an account? <a href="register">Sign Up</a></p>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: blue;" href="{% provider_login_url  'google' %}" class="fa fa-google">&nbsp;&nbsp;&nbsp;&nbsp;Login With Google-Gmail Account</a>
+      <p>Don't have an accksahdiozskdjbcount? <a href="register">Sign Up</a></p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: blue;" href="{% oauth2_provider 'google' %}" class="fa fa-google">&nbsp;&nbsp;&nbsp;&nbsp;Login With Google-Gmail Account</a>
   
     </div>
 

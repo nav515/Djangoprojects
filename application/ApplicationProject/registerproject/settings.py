@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'userapp',
     'django.contrib.sites',
 
+    'provider.oauth2',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
