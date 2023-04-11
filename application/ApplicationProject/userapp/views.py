@@ -3,6 +3,8 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 import datetime
 from time import strftime
+from django.contrib import messages
+
 
 def home(request):
     name = 'New User'
@@ -24,11 +26,16 @@ def login(request):
     if request.method =='POST':
         username = request.POST['username']
         password = request.POST['password']
-
         user = auth.authenticate(username=username,password=password)
+        email_list = list(User.objects.values_list("email", flat=True))
+
         if user is not None:
             print('hello naveen')
+            print('pPPPPPPPPPPPPPPPPPP',email_list)
+            print('UUUUUUUUUUUUUUU',user.username)
+            print('EEEEEEEEEEEEEEEEEEEE',user.password)
             auth.login(request,user)
+            messages.success(request, 'login successfully.')
             return redirect('home')
         else:
             messages.info(request,'Invalid Credentials')
@@ -61,7 +68,7 @@ def register(request):
                 print('Email already taken')
                 return redirect('register')
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username,                                                email=email, password=password1)
+                user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username,email=email, password=password1)
                 user.save()
                 messages.info(request, 'user created pls lagin')
                 print('user created')

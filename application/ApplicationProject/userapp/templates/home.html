@@ -36,6 +36,13 @@
       text-align: center;
     }
   </style>
+   {% for message in messages %}
+<div class="container-fluid p-0">
+  <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+    {{ message }}
+  </div>
+</div>
+{% endfor %}
 </head>
 <body>
   <header>
@@ -61,9 +68,6 @@
       <h3>Hello {{name}}</h3>
       <h3>Date : {{date}}</h3>
 
-       {% for message in messages %}
-       <h3>{{message}}</h3>
-       {% endfor %}
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra euismod risus, et vestibulum urna pulvinar in. Nulla facilisi. Praesent eget malesuada purus. Fusce consequat diam nec lectus venenatis, a facilisis sapien efficitur. Duis dictum, ipsum nec venenatis consectetur, ipsum nunc sollicitudin enim, id ullamcorper quam nulla in ipsum.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra euismod risus, et vestibulum urna pulvinar in. Nulla facilisi. Praesent eget malesuada purus. Fusce consequat diam nec lectus venenatis, a facilisis sapien efficitur. Duis dictum, ipsum nec venenatis consectetur, ipsum nunc sollicitudin enim, id ullamcorper quam nulla in ipsum.</p>

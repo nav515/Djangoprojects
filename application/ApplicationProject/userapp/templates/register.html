@@ -78,6 +78,13 @@
   </head>
   <body>
     <header>
+        {% for message in messages %}
+<div class="container-fluid p-0">
+  <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+    {{ message }}
+  </div>
+</div>
+        {% endfor %}
     <h2>Welcome to My Website</h2>
   </header>
   <h2>Registration Details</h2>
@@ -91,9 +98,7 @@
     <input type="password" name="password2" placeholder="Enter password again"><br>
     <h2><input type="Submit"></h2>
 </form>
-    {% for message in messages %}
-    <h3>{{message}}</h3>
-    {% endfor %}
+
   </body>
   <footer>
     <p>Copyright © My Website 2023</p>
