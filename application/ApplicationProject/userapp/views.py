@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
-from django.contrib import messages
 import datetime
 from time import strftime
 from django.contrib import messages
 
-
 def home(request):
-    name = 'New User'
+    name = User.username
     date = datetime.datetime.now()
     datetm = strftime("%H")
     if int(datetm) < 12:
@@ -28,12 +26,12 @@ def login(request):
         password = request.POST['password']
         user = auth.authenticate(username=username,password=password)
         email_list = list(User.objects.values_list("email", flat=True))
-
         if user is not None:
+            user1 = User.objects.get(username=user.username)
+            print('full object',user1)
+            email = user1.email
+            print('email:------------------------',email)
             print('hello naveen')
-            print('pPPPPPPPPPPPPPPPPPP',email_list)
-            print('UUUUUUUUUUUUUUU',user.username)
-            print('EEEEEEEEEEEEEEEEEEEE',user.password)
             auth.login(request,user)
             messages.success(request, 'login successfully.')
             return redirect('home')
@@ -70,7 +68,7 @@ def register(request):
             else:
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username,email=email, password=password1)
                 user.save()
-                messages.info(request, 'user created pls lagin')
+                messages.info(request, 'user created pls login')
                 print('user created')
                 return redirect('login')
 

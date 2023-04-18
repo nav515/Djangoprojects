@@ -1,26 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        h1, h2, h3, h4, h5, h6 {
-	        font-family: "Playfair Display", serif;
-	        font-weight: 700;
-	        line-height: 1.2;
-	        margin-bottom: 15px;
-	        color: #333;
-        }
-        body{
-        	background-color: #f0f0f0;
-			background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc);
-			background-size: 30px 30px;
-			background-position: 0 0, 15px 15px;
-			font-family: Arial, sans-serif;
-			font-size: 16px;
-			color: #333;
-			padding: 20px;
-		}
+	<title>CRUD</title>
+	<style>
 		table {
 			border-collapse: collapse;
 			width: 100%;
@@ -53,9 +35,7 @@
 	</style>
 </head>
 <body>
-<div style="margin-left:450px">
-<h1>Enter the Student Details</h1>
-<br>
+    <h2>Enter the Student Details</h2>
 <form action="" method="POST">
     {% csrf_token %}
     {{fm.as_p}}
@@ -63,8 +43,7 @@
 </form>
 <br>
 <br>
-</div>
- <table border="1">
+    <table>
         <th>
             <td>ID</td>
             <td>Student Name</td>
@@ -87,6 +66,5 @@
         {% endfor %}
 
     </table>
-  </div>
 </body>
 </html>
