@@ -37,6 +37,29 @@ def post_fun():
     print(res.status_code)
     print(data)
 post_fun()
+
+
+
+def put_fun(id):
+    emp = {
+          'ename':'naveen',
+          'esal': '22000',
+          'eadd':'india'
+          }
+    res = requests.put(Base_url + End_point+str(id)+'/',json.dumps(emp))
+    data = res.json()
+    print(res.status_code)
+    print(data)
+put_fun(11)
+
+def delete_fun(id):
+    res = requests.delete(Base_url + End_point+str(id)+'/')
+    data = res.json()
+    print(res.status_code)
+    print(data)
+delete_fun(7)
+
+
     
 
 
